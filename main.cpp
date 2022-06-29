@@ -34,8 +34,8 @@ ImageButton::ImageButton(QWidget* parent)
     setToolTip("Stop");
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    mButtonUpPixmap(QPixmap("C:\\"));
-    mButtonDownPixmap(QPixmap("C:\\"));
+    mButtonUpPixmap = (QPixmap("C:\\Desktop\\green.jpg"));
+    mButtonDownPixmap = (QPixmap("C:\\Desktop\\red.jpg"));
     mCurrentButtonPixmap = mButtonUpPixmap;
     setGeometry(mCurrentButtonPixmap.rect());
     connect(this, &QPushButton::clicked, this, &ImageButton::setDown);
@@ -76,12 +76,13 @@ void ImageButton::setUp()
 }
 
 
-int main(int argc, char** argv) {QApplication app(argc, argv);
-  ImageButton redButton(nullptr);
-  redButton.setFixedSize(100, 100);
-  redButton.move(1000, 400);
-  QObject::connect(&redButton, &QPushButton::clicked, []() {std::cout << "clicked\n";});
-  redButton.show();
-  return app.exec();
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
+    ImageButton redButton(nullptr);
+    redButton.setFixedSize(100, 100);
+    redButton.move(1000, 400);
+    QObject::connect(&redButton, &QPushButton::clicked, []() {std::cout << "clicked\n";});
+    redButton.show();
+    return app.exec();
 
 }
