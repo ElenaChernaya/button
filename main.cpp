@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QTimer>
 
+
 class ImageButton: public QPushButton
 {
   Q_OBJECT
@@ -34,8 +35,8 @@ ImageButton::ImageButton(QWidget* parent)
     setToolTip("Stop");
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    mButtonUpPixmap = (QPixmap("C:\\Desktop\\green.jpg"));
-    mButtonDownPixmap = (QPixmap("C:\\Desktop\\red.jpg"));
+    mButtonUpPixmap = (QPixmap("C:\\Users\\Elena\\Desktop\\buttonUp.png"));
+    mButtonDownPixmap = (QPixmap("C:\\Users\\Elena\\Desktop\\buttonDown.png"));
     mCurrentButtonPixmap = mButtonUpPixmap;
     setGeometry(mCurrentButtonPixmap.rect());
     connect(this, &QPushButton::clicked, this, &ImageButton::setDown);
@@ -75,7 +76,7 @@ void ImageButton::setUp()
     update();
 }
 
-
+#include "main.moc"
 int main(int argc, char** argv) {
     QApplication app(argc, argv);
     ImageButton redButton(nullptr);
@@ -83,6 +84,6 @@ int main(int argc, char** argv) {
     redButton.move(1000, 400);
     QObject::connect(&redButton, &QPushButton::clicked, []() {std::cout << "clicked\n";});
     redButton.show();
-    return app.exec();
+    return  app.exec();
 
 }
